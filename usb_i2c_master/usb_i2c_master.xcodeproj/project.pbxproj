@@ -1,0 +1,164 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXFileReference section */
+		4008CE6A10C10BAB00915FF8 /* usbconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = usbconfig.h; sourceTree = "<group>"; };
+		4008CE6C10C10BBA00915FF8 /* asmcommon.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = asmcommon.inc; sourceTree = "<group>"; };
+		4008CE6D10C10BBA00915FF8 /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
+		4008CE6E10C10BBA00915FF8 /* CommercialLicense.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CommercialLicense.txt; sourceTree = "<group>"; };
+		4008CE6F10C10BBA00915FF8 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
+		4008CE7010C10BBA00915FF8 /* oddebug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = oddebug.c; sourceTree = "<group>"; };
+		4008CE7110C10BBA00915FF8 /* oddebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oddebug.h; sourceTree = "<group>"; };
+		4008CE7210C10BBA00915FF8 /* oddebug.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = oddebug.o; sourceTree = "<group>"; };
+		4008CE7310C10BBA00915FF8 /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
+		4008CE7410C10BBA00915FF8 /* USB-ID-FAQ.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "USB-ID-FAQ.txt"; sourceTree = "<group>"; };
+		4008CE7510C10BBA00915FF8 /* USB-IDs-for-free.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "USB-IDs-for-free.txt"; sourceTree = "<group>"; };
+		4008CE7610C10BBA00915FF8 /* usbconfig-prototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "usbconfig-prototype.h"; sourceTree = "<group>"; };
+		4008CE7710C10BBA00915FF8 /* usbdrv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = usbdrv.c; sourceTree = "<group>"; };
+		4008CE7810C10BBA00915FF8 /* usbdrv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = usbdrv.h; sourceTree = "<group>"; };
+		4008CE7910C10BBA00915FF8 /* usbdrv.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = usbdrv.o; sourceTree = "<group>"; };
+		4008CE7A10C10BBA00915FF8 /* usbdrvasm.asm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm.asm; path = usbdrvasm.asm; sourceTree = "<group>"; };
+		4008CE7B10C10BBA00915FF8 /* usbdrvasm.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = usbdrvasm.o; sourceTree = "<group>"; };
+		4008CE7C10C10BBA00915FF8 /* usbdrvasm.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = usbdrvasm.S; sourceTree = "<group>"; };
+		4008CE7D10C10BBA00915FF8 /* usbdrvasm12.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = usbdrvasm12.inc; sourceTree = "<group>"; };
+		4008CE7E10C10BBA00915FF8 /* usbdrvasm128.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = usbdrvasm128.inc; sourceTree = "<group>"; };
+		4008CE7F10C10BBA00915FF8 /* usbdrvasm15.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = usbdrvasm15.inc; sourceTree = "<group>"; };
+		4008CE8010C10BBA00915FF8 /* usbdrvasm16.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = usbdrvasm16.inc; sourceTree = "<group>"; };
+		4008CE8110C10BBA00915FF8 /* usbdrvasm165.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = usbdrvasm165.inc; sourceTree = "<group>"; };
+		4008CE8210C10BBA00915FF8 /* usbdrvasm18-crc.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = "usbdrvasm18-crc.inc"; sourceTree = "<group>"; };
+		4008CE8310C10BBA00915FF8 /* usbdrvasm20.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = usbdrvasm20.inc; sourceTree = "<group>"; };
+		4008CE8410C10BBA00915FF8 /* USBID-License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "USBID-License.txt"; sourceTree = "<group>"; };
+		4008CE8510C10BBA00915FF8 /* usbportability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = usbportability.h; sourceTree = "<group>"; };
+		4079525E0CEA38CC00E202DC /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		4079525F0CEA38CC00E202DC /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		4008CE6B10C10BBA00915FF8 /* usbdrv */ = {
+			isa = PBXGroup;
+			children = (
+				4008CE6C10C10BBA00915FF8 /* asmcommon.inc */,
+				4008CE6D10C10BBA00915FF8 /* Changelog.txt */,
+				4008CE6E10C10BBA00915FF8 /* CommercialLicense.txt */,
+				4008CE6F10C10BBA00915FF8 /* License.txt */,
+				4008CE7010C10BBA00915FF8 /* oddebug.c */,
+				4008CE7110C10BBA00915FF8 /* oddebug.h */,
+				4008CE7210C10BBA00915FF8 /* oddebug.o */,
+				4008CE7310C10BBA00915FF8 /* Readme.txt */,
+				4008CE7410C10BBA00915FF8 /* USB-ID-FAQ.txt */,
+				4008CE7510C10BBA00915FF8 /* USB-IDs-for-free.txt */,
+				4008CE7610C10BBA00915FF8 /* usbconfig-prototype.h */,
+				4008CE7710C10BBA00915FF8 /* usbdrv.c */,
+				4008CE7810C10BBA00915FF8 /* usbdrv.h */,
+				4008CE7910C10BBA00915FF8 /* usbdrv.o */,
+				4008CE7A10C10BBA00915FF8 /* usbdrvasm.asm */,
+				4008CE7B10C10BBA00915FF8 /* usbdrvasm.o */,
+				4008CE7C10C10BBA00915FF8 /* usbdrvasm.S */,
+				4008CE7D10C10BBA00915FF8 /* usbdrvasm12.inc */,
+				4008CE7E10C10BBA00915FF8 /* usbdrvasm128.inc */,
+				4008CE7F10C10BBA00915FF8 /* usbdrvasm15.inc */,
+				4008CE8010C10BBA00915FF8 /* usbdrvasm16.inc */,
+				4008CE8110C10BBA00915FF8 /* usbdrvasm165.inc */,
+				4008CE8210C10BBA00915FF8 /* usbdrvasm18-crc.inc */,
+				4008CE8310C10BBA00915FF8 /* usbdrvasm20.inc */,
+				4008CE8410C10BBA00915FF8 /* USBID-License.txt */,
+				4008CE8510C10BBA00915FF8 /* usbportability.h */,
+			);
+			path = usbdrv;
+			sourceTree = "<group>";
+		};
+		4079523B0CEA382200E202DC = {
+			isa = PBXGroup;
+			children = (
+				4079525D0CEA38CC00E202DC /* firmware */,
+			);
+			sourceTree = "<group>";
+		};
+		4079525D0CEA38CC00E202DC /* firmware */ = {
+			isa = PBXGroup;
+			children = (
+				4008CE6B10C10BBA00915FF8 /* usbdrv */,
+				4008CE6A10C10BAB00915FF8 /* usbconfig.h */,
+				4079525F0CEA38CC00E202DC /* Makefile */,
+				4079525E0CEA38CC00E202DC /* main.c */,
+			);
+			path = firmware;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		407952600CEA391500E202DC /* firmware */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = $ACTION;
+			buildConfigurationList = 407952610CEA393300E202DC /* Build configuration list for PBXLegacyTarget "firmware" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = firmware;
+			dependencies = (
+			);
+			name = firmware;
+			passBuildSettingsInEnvironment = 1;
+			productName = "Build All";
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		4079523D0CEA382200E202DC /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 4079523E0CEA382200E202DC /* Build configuration list for PBXProject "usb_i2c_master" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = 4079523B0CEA382200E202DC;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				407952600CEA391500E202DC /* firmware */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		407952400CEA382200E202DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+			};
+			name = Release;
+		};
+		407952630CEA393300E202DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PATH = "$(PATH):/usr/local/CrossPack-AVR/bin";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4079523E0CEA382200E202DC /* Build configuration list for PBXProject "usb_i2c_master" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407952400CEA382200E202DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		407952610CEA393300E202DC /* Build configuration list for PBXLegacyTarget "firmware" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407952630CEA393300E202DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4079523D0CEA382200E202DC /* Project object */;
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="62">
+  <logicalFolder name="root" displayName="root" projectFiles="true">
+    <df name="firmware" root=".">
+      <df name="usbdrv">
+        <in>oddebug.c</in>
+        <in>oddebug.h</in>
+        <in>usbconfig-prototype.h</in>
+        <in>usbdrv.c</in>
+        <in>usbdrv.h</in>
+        <in>usbportability.h</in>
+      </df>
+      <in>main.c</in>
+      <in>usbconfig.h</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false">
+      <itemPath>Makefile-firmware.mk</itemPath>
+      <itemPath>makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile-firmware.mk</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <compilerSet>AVR|GNU</compilerSet>
+        <platform>4</platform>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>$(MAKE) -f Makefile</buildCommand>
+          <cleanCommand>$(MAKE) -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+      </makefileType>
+      <item path="main.c" ex="false" tool="0">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+            <pElem>usbdrv</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="usbdrv/usbdrv.c" ex="false" tool="0">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </cTool>
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
