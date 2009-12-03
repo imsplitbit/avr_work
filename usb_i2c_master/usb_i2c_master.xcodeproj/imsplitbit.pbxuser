@@ -16,50 +16,10 @@
 	};
 	4008CE6A10C10BAB00915FF8 /* usbconfig.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {740, 7144}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1170}";
+			sepNavIntBoundsRect = "{{0, 0}, {740, 7201}}";
+			sepNavSelRange = "{13906, 0}";
+			sepNavVisRange = "{14197, 1564}";
 		};
-	};
-	4008CE8710C10C0E00915FF8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 4008CE6A10C10BAB00915FF8 /* usbconfig.h */;
-		name = "usbconfig.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1170;
-		vrLoc = 0;
-	};
-	4008CE8810C10C0E00915FF8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 4079525F0CEA38CC00E202DC /* Makefile */;
-		name = "Makefile: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 713;
-		vrLoc = 0;
-	};
-	4008CE8910C10C0E00915FF8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 4079525E0CEA38CC00E202DC /* main.c */;
-		name = "main.c: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1006;
-		vrLoc = 101;
-	};
-	4008CE8A10C10C0E00915FF8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 4079525E0CEA38CC00E202DC /* main.c */;
-		name = "main.c: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 985;
-		vrLoc = 101;
 	};
 	4079523D0CEA382200E202DC /* Project object */ = {
 		activeBuildConfigurationName = Release;
@@ -76,7 +36,7 @@
 					20,
 					526,
 					20,
-					48.16259765625,
+					48,
 					43,
 					43,
 					20,
@@ -91,14 +51,14 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 281086623;
-			PBXWorkspaceStateSaveDate = 281086623;
+			PBXPerProjectTemplateStateSaveDate = 281332907;
+			PBXWorkspaceStateSaveDate = 281332907;
 		};
 		perUserProjectItems = {
-			4008CE8710C10C0E00915FF8 /* PBXTextBookmark */ = 4008CE8710C10C0E00915FF8 /* PBXTextBookmark */;
-			4008CE8810C10C0E00915FF8 /* PBXTextBookmark */ = 4008CE8810C10C0E00915FF8 /* PBXTextBookmark */;
-			4008CE8910C10C0E00915FF8 /* PBXTextBookmark */ = 4008CE8910C10C0E00915FF8 /* PBXTextBookmark */;
-			4008CE8A10C10C0E00915FF8 /* PBXTextBookmark */ = 4008CE8A10C10C0E00915FF8 /* PBXTextBookmark */;
+			4087CF4810C4D5E700F131F2 /* PBXTextBookmark */ = 4087CF4810C4D5E700F131F2 /* PBXTextBookmark */;
+			4087CF4910C4D5E700F131F2 /* PBXTextBookmark */ = 4087CF4910C4D5E700F131F2 /* PBXTextBookmark */;
+			4087CF4A10C4D5E700F131F2 /* PBXTextBookmark */ = 4087CF4A10C4D5E700F131F2 /* PBXTextBookmark */;
+			4087CF4B10C4D5E700F131F2 /* PBXTextBookmark */ = 4087CF4B10C4D5E700F131F2 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 4008CE6810C10ABF00915FF8 /* Source Control */;
 		userBuildSettings = {
@@ -106,9 +66,9 @@
 	};
 	4079525E0CEA38CC00E202DC /* main.c */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {704, 1444}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{101, 985}";
+			sepNavIntBoundsRect = "{{0, 0}, {708, 1995}}";
+			sepNavSelRange = "{2769, 0}";
+			sepNavVisRange = "{2488, 319}";
 		};
 	};
 	4079525F0CEA38CC00E202DC /* Makefile */ = {
@@ -120,5 +80,45 @@
 	};
 	407952600CEA391500E202DC /* firmware */ = {
 		activeExec = 0;
+	};
+	4087CF4810C4D5E700F131F2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4079525F0CEA38CC00E202DC /* Makefile */;
+		name = "Makefile: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 713;
+		vrLoc = 0;
+	};
+	4087CF4910C4D5E700F131F2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4008CE6A10C10BAB00915FF8 /* usbconfig.h */;
+		name = "usbconfig.h: 277";
+		rLen = 0;
+		rLoc = 13906;
+		rType = 0;
+		vrLen = 1564;
+		vrLoc = 14197;
+	};
+	4087CF4A10C4D5E700F131F2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4079525E0CEA38CC00E202DC /* main.c */;
+		name = "main.c: 87";
+		rLen = 43;
+		rLoc = 2523;
+		rType = 0;
+		vrLen = 468;
+		vrLoc = 2159;
+	};
+	4087CF4B10C4D5E700F131F2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4079525E0CEA38CC00E202DC /* main.c */;
+		name = "main.c: 103";
+		rLen = 0;
+		rLoc = 2769;
+		rType = 0;
+		vrLen = 319;
+		vrLoc = 2488;
 	};
 }

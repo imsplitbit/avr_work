@@ -2,8 +2,6 @@
 <configurationDescriptor version="62">
   <logicalFolder name="root" displayName="root" projectFiles="true">
     <df name="firmware" root=".">
-      <df name="usbdrv">
-      </df>
       <in>main.c</in>
       <in>usbconfig.h</in>
     </df>

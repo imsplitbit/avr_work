@@ -79,11 +79,9 @@ uchar usbFunctionWrite(uchar *data, uchar len)
 
 int main(void)
 {
-/*
-    uchar i;
-*/
 
-    
+    uchar i;
+
     wdt_enable(WDTO_1S);
     wdt_disable();
 
@@ -91,19 +89,18 @@ int main(void)
 
     usbDeviceDisconnect();
 
-/*
     i = 0;
     while(--i){
         wdt_reset();
         _delay_ms(1);
     }
-*/
+	
     _delay_ms(250);
     usbDeviceConnect();
     sei();
 
     for(;;){
-        wdt_reset();
+        //wdt_reset();
         usbPoll();
     }
     return 0;
