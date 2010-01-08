@@ -1,61 +1,61 @@
 # Name: Makefile
 # Author: Daniel Salinas
-# Copyright: None... wtf would I want one?
-# License: Creative Commons
+# Copyright: Daniel Salinas (2009)
+# License: GPL v3
 
-DEVICE     = attiny2313
-CLOCK      = 20000000
-PROGRAMMER = -c avrisp2 -P usb -p t2313 
-OBJECTS    = main.o
-FUSES      = -U lfuse:w:0xee:m -U hfuse:w:0xdb:m -U efuse:w:0xff:m
+##################
+# Device Section #
+##################
+DEVICE = attiny2313
+AVRDUDE_DEVICE = t2313
+CLOCK = 20000000
 
-# Tune the lines below only if you know what you are doing:
+###################
+# Library Section #
+###################
+AVRLIB = /opt/libs/avrlib
+VUSBLIB = /opt/libs/vusb-20090822
+LDFLAGS = -Wl,-gc-sections -Wl,-relax
 
-AVRDUDE = avrdude $(PROGRAMMER) -p $(DEVICE)
-COMPILE = avr-gcc -I/usr/local/CrossPack-AVR/avr/include -Wall -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
+######################
+# Programmer Section #
+######################
+PROGRAMMER = avrisp2
+PORT = usb
+FUSES = -U lfuse:w:0xee:m -U hfuse:w:0xdb:m -U efuse:w:0xff:m
+AVRDUDE = avrdude -c $(PROGRAMMER) -P $(PORT) -p $(AVRDUDE_DEVICE)
 
+####################
+# Compiler Section #
+####################
+OBJECTS = main.o
+CFLAGS = -g -Wall -mcall-prologues -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) -Os -I$(shell cd ${AVRLIB}; pwd)
+CPP = avr-g++
+CC = avr-gcc
+OBJ2HEX = avr-objcopy
+TARGET = main
+OBJECTS = usbdrv/usbdrv.obj usbdrv/usbdrvasm.obj usbdrv/oddebug.obj
 # symbolic targets:
-all:	main.hex
+all:	$(TARGET).hex
 
-.c.o:
-	$(COMPILE) -c $< -o $@
+clean:
+	rm -f *.o *.hex *.obj
 
-.S.o:
-	$(COMPILE) -x assembler-with-cpp -c $< -o $@
+%.hex: %.obj
+	$(OBJ2HEX) -R .eeprom -O ihex $< $@
 
-.c.s:
-	$(COMPILE) -S $< -o $@
+%.obj: %.o
+	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
 
 flash:	all
-	$(AVRDUDE) -U flash:w:main.hex:i
+	$(AVRDUDE) -U flash:w:$(TARGET).hex
 
 fuse:
 	$(AVRDUDE) $(FUSES)
 
 # Xcode uses the Makefile targets "", "clean" and "install"
-install: flash fuse
+install: flash
 
-# if you use a bootloader, change the command below appropriately:
-load: all
-	bootloadHID main.hex
-
-clean:
-	rm -f main.hex main.elf $(OBJECTS)
-
-# file targets:
-main.elf: $(OBJECTS)
-	$(COMPILE) -o main.elf $(OBJECTS)
-
-main.hex: main.elf
-	rm -f main.hex
-	avr-objcopy -j .text -j .data -O ihex main.elf main.hex
-
-# If you have an EEPROM section, you must also create a hex file for the
-# EEPROM and add it to the "flash" target.
-
-# Targets for code debugging and analysis:
-disasm:	main.elf
-	avr-objdump -d main.elf
-
-cpp:
-	$(COMPILE) -E main.c
+# Since we don't want to ship the driver multiple times, we copy it into this project:
+usbdrv:
+	cp -r $(VUSBLIB)/usbdrv .
