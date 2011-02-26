@@ -6,15 +6,14 @@
 ##################
 # Device Section #
 ##################
-DEVICE = attiny2313
-AVRDUDE_DEVICE = t2313
-CLOCK = 20000000
+DEVICE = attiny861
+AVRDUDE_DEVICE = t861
+CLOCK = 16000000
 
 ###################
 # Library Section #
 ###################
 AVRLIB = /opt/libs/avrlib
-VUSBLIB = /opt/libs/vusb-20090822
 
 # Use the LDFLAGS with "pololu" if doing
 # 3pi development or if you just want to
@@ -26,21 +25,20 @@ LDFLAGS = -Wl,-gc-sections -Wl,-relax
 ######################
 # Programmer Section #
 ######################
-PROGRAMMER = avrisp2
+PROGRAMMER = usbtiny
 PORT = usb
-FUSES = -U lfuse:w:0xee:m -U hfuse:w:0xdb:m -U efuse:w:0xff:m
+FUSES = -U lfuse:w:0xef:m -U hfuse:w:0xd5:m
 AVRDUDE = avrdude -c $(PROGRAMMER) -P $(PORT) -p $(AVRDUDE_DEVICE)
 
 ####################
 # Compiler Section #
 ####################
-OBJECTS = main.o
-CFLAGS = -g -Wall -mcall-prologues -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) -Os -Iusbdrv -I. -I$(shell cd ${AVRLIB}; pwd)
+CFLAGS = -g -Wall -mcall-prologues -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) -Os -I. -I$(shell cd ${AVRLIB}; pwd) #-I$(shell cd ${AVRLIB}/conf; pwd)
 CPP = avr-g++
 CC = avr-gcc
 OBJ2HEX = avr-objcopy
 TARGET = main
-OBJECTS = usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o $(TARGET).o
+OBJECTS = $(TARGET).o
 
 # symbolic targets:
 all:	$(TARGET).hex
@@ -54,12 +52,21 @@ all:	$(TARGET).hex
 .c.s:
 	$(CC) $(CFLAGS) -S $< -o $@
 
+#################################
+# Non-3pi development section   #
+# Comment out if working on the #
+# 3pi robotics development      #
+# platform.                     #
+#################################
 main.elf: $(OBJECTS)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $(TARGET).elf $(OBJECTS)
 
 main.hex: main.elf
 	rm -f main.hex
 	$(OBJ2HEX) -j .text -j .data -O ihex $(TARGET).elf $(TARGET).hex
+#######################
+# End non-3pi section #
+#######################
 
 disasm: main.elf
 	$(OBJ2HEX) -d main.elf
@@ -70,11 +77,21 @@ cpp:
 clean:
 	rm -f *.o *.hex *.obj *.elf $(OBJECTS)
 
+###############################
+# 3pi development section     #
+# Comment out if working on   #
+# general AVR develpment,     #
+# especially if you are doing #
+# V-USB development.          #
+###############################
 #%.hex: %.obj
 #	$(OBJ2HEX) -R .eeprom -O ihex $< $@
 
 #%.obj: %.o
 #	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
+###################
+# End 3pi section #
+###################
 
 flash:	all
 	$(AVRDUDE) -U flash:w:$(TARGET).hex

@@ -6,8 +6,8 @@
 ##################
 # Device Section #
 ##################
-DEVICE = attiny2313
-AVRDUDE_DEVICE = t2313
+DEVICE = attiny861
+AVRDUDE_DEVICE = t861
 CLOCK = 20000000
 
 ###################
@@ -26,15 +26,14 @@ LDFLAGS = -Wl,-gc-sections -Wl,-relax
 ######################
 # Programmer Section #
 ######################
-PROGRAMMER = avrisp2
+PROGRAMMER = usbtiny
 PORT = usb
-FUSES = -U lfuse:w:0xee:m -U hfuse:w:0xdb:m -U efuse:w:0xff:m
+FUSES = -U lfuse:w:0xef:m -U hfuse:w:0xd5:m
 AVRDUDE = avrdude -c $(PROGRAMMER) -P $(PORT) -p $(AVRDUDE_DEVICE)
 
 ####################
 # Compiler Section #
 ####################
-OBJECTS = main.o
 CFLAGS = -g -Wall -mcall-prologues -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) -Os -Iusbdrv -I. -I$(shell cd ${AVRLIB}; pwd)
 CPP = avr-g++
 CC = avr-gcc
@@ -54,12 +53,21 @@ all:	$(TARGET).hex
 .c.s:
 	$(CC) $(CFLAGS) -S $< -o $@
 
+#################################
+# Non-3pi development section   #
+# Comment out if working on the #
+# 3pi robotics development      #
+# platform.                     #
+#################################
 main.elf: $(OBJECTS)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $(TARGET).elf $(OBJECTS)
 
 main.hex: main.elf
 	rm -f main.hex
 	$(OBJ2HEX) -j .text -j .data -O ihex $(TARGET).elf $(TARGET).hex
+#######################
+# End non-3pi section #
+#######################
 
 disasm: main.elf
 	$(OBJ2HEX) -d main.elf
@@ -70,11 +78,21 @@ cpp:
 clean:
 	rm -f *.o *.hex *.obj *.elf $(OBJECTS)
 
+###############################
+# 3pi development section     #
+# Comment out if working on   #
+# general AVR develpment,     #
+# especially if you are doing #
+# V-USB development.          #
+###############################
 #%.hex: %.obj
 #	$(OBJ2HEX) -R .eeprom -O ihex $< $@
 
 #%.obj: %.o
 #	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
+###################
+# End 3pi section #
+###################
 
 flash:	all
 	$(AVRDUDE) -U flash:w:$(TARGET).hex

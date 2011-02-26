@@ -6,9 +6,9 @@
 ##################
 # Device Section #
 ##################
-DEVICE = attiny2313
-AVRDUDE_DEVICE = t2313
-CLOCK = 20000000
+DEVICE = atmega168
+AVRDUDE_DEVICE = m168
+CLOCK = 16000000
 
 ###################
 # Library Section #
@@ -26,21 +26,19 @@ LDFLAGS = -Wl,-gc-sections -Wl,-relax
 ######################
 # Programmer Section #
 ######################
-PROGRAMMER = avrisp2
+PROGRAMMER = usbtiny
 PORT = usb
-FUSES = -U lfuse:w:0xee:m -U hfuse:w:0xdb:m -U efuse:w:0xff:m
 AVRDUDE = avrdude -c $(PROGRAMMER) -P $(PORT) -p $(AVRDUDE_DEVICE)
 
 ####################
 # Compiler Section #
 ####################
-OBJECTS = main.o
-CFLAGS = -g -Wall -mcall-prologues -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) -Os -Iusbdrv -I. -I$(shell cd ${AVRLIB}; pwd)
+CFLAGS = -Wall -mcall-prologues -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) -Os -Iusbdrv -I. -I$(AVRLIB)
 CPP = avr-g++
 CC = avr-gcc
 OBJ2HEX = avr-objcopy
 TARGET = main
-OBJECTS = usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o $(TARGET).o
+OBJECTS = $(TARGET).o twimaster.o
 
 # symbolic targets:
 all:	$(TARGET).hex
@@ -54,12 +52,21 @@ all:	$(TARGET).hex
 .c.s:
 	$(CC) $(CFLAGS) -S $< -o $@
 
+#################################
+# Non-3pi development section   #
+# Comment out if working on the #
+# 3pi robotics development      #
+# platform.                     #
+#################################
 main.elf: $(OBJECTS)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $(TARGET).elf $(OBJECTS)
 
 main.hex: main.elf
 	rm -f main.hex
 	$(OBJ2HEX) -j .text -j .data -O ihex $(TARGET).elf $(TARGET).hex
+#######################
+# End non-3pi section #
+#######################
 
 disasm: main.elf
 	$(OBJ2HEX) -d main.elf
@@ -70,11 +77,21 @@ cpp:
 clean:
 	rm -f *.o *.hex *.obj *.elf $(OBJECTS)
 
+###############################
+# 3pi development section     #
+# Comment out if working on   #
+# general AVR develpment,     #
+# especially if you are doing #
+# V-USB development.          #
+###############################
 #%.hex: %.obj
 #	$(OBJ2HEX) -R .eeprom -O ihex $< $@
 
 #%.obj: %.o
 #	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
+###################
+# End 3pi section #
+###################
 
 flash:	all
 	$(AVRDUDE) -U flash:w:$(TARGET).hex
